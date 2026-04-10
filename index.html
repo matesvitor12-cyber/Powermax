@@ -4,221 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Powermax | Tecnologia de Elite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #050505; color: #ffffff; line-height: 1.6; }
-        .header { padding: 60px 20px; text-align: center; background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%); }
-        h1 { font-size: 3rem; font-weight: 900; letter-spacing: -2px; color: #00d4ff; }
-        .tagline { color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; }
+        
+        /* CORES DA CONFIANÇA: Azul Marinho, Cinza Nobre e Branco */
+        body { background-color: #0a0f1a; color: #ffffff; line-height: 1.6; }
+        
+        .header { 
+            padding: 50px 20px; 
+            text-align: center; 
+            background: linear-gradient(180deg, #111827 0%, #0a0f1a 100%);
+            border-bottom: 1px solid #1e293b;
+        }
+
+        h1 { font-size: 2.8rem; font-weight: 800; color: #f8fafc; letter-spacing: 2px; }
+        .tagline { color: #38bdf8; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 600; }
+
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-        /* --- Estilo do NOVO Carrossel MELHORADO e MAIOR --- */
+        /* CARROSSEL MAIOR COM ZOOM */
         .carousel-container {
             position: relative;
             width: 100%;
-            height: 450px; /* --- AUMENTADO: Área da foto maior --- */
+            height: 480px; /* Levemente maior para imponência */
             overflow: hidden;
-            border-radius: 20px;
+            border-radius: 12px;
             margin-bottom: 25px;
-            border: 2px solid #222;
+            background: #000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         
         .carousel-track {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            overflow-x: scroll;
-            scroll-snap-type: x mandatory;
+            display: flex; width: 100%; height: 100%;
+            overflow-x: scroll; scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
         }
-        /* Esconde a barra de rolagem */
         .carousel-track::-webkit-scrollbar { display: none; }
         
-        .carousel-item {
-            min-width: 100%;
-            height: 100%;
-            scroll-snap-align: start;
-            position: relative;
+        .carousel-item { min-width: 100%; height: 100%; scroll-snap-align: start; overflow: hidden; }
+        .carousel-item img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: transform 0.3s ease; cursor: zoom-in; 
         }
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* --- AUMENTADO: Preenche todo o espaço sem distorcer --- */
-        }
+        .carousel-item img.zoomed { transform: scale(1.8); cursor: zoom-out; }
 
-        /* --- Botões de Navegação (Setas) --- */
+        /* NAVEGAÇÃO PROFISSIONAL */
         .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: #00d4ff;
-            border: 1px solid #00d4ff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: 0.3s;
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.1); color: #fff;
+            backdrop-filter: blur(5px); width: 45px; height: 45px;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; z-index: 10; border: 1px solid rgba(255,255,255,0.2);
         }
-        .carousel-btn:hover { background: rgba(0,212,255,0.2); color: #fff; }
-        .prev { left: 15px; }
-        .next { right: 15px; }
+        .prev { left: 15px; } .next { right: 15px; }
 
-        /* --- Pontos Indicadores (Dots) --- */
         .carousel-dots {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
+            position: absolute; bottom: 20px; left: 50%;
+            transform: translateX(-50%); display: flex; gap: 10px; z-index: 10;
         }
-        .dot {
-            width: 10px;
-            height: 10px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
+        .dot { width: 8px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 50%; }
+        .dot.active { background: #38bdf8; width: 20px; border-radius: 10px; transition: 0.3s; }
+
+        /* GRID E CARDS */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        
+        .card { 
+            background: #1e293b; border-radius: 20px; padding: 30px; 
+            border: 1px solid #334155; transition: 0.3s;
         }
-        .dot.active { background: #00d4ff; }
+        .card:hover { border-color: #38bdf8; transform: translateY(-5px); }
 
-        /* --- Estilo Geral do Card --- */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; margin-top: 30px; }
-        .card { background: #111; border: 1px solid #222; border-radius: 28px; padding: 25px; transition: 0.3s; display: flex; flex-direction: column; }
-        .card:hover { border-color: #00d4ff; }
-        .card h2 { font-size: 1.6rem; margin-bottom: 10px; color: #fff; font-weight: 700; }
-        .description { color: #94a3b8; font-size: 1rem; margin-bottom: 20px; min-height: 70px; flex-grow: 1; }
-        .price { font-size: 2rem; font-weight: 900; color: #00d4ff; display: block; margin-bottom: 20px; }
+        .card h2 { font-size: 1.7rem; margin-bottom: 12px; color: #f1f5f9; }
+        .description { color: #94a3b8; font-size: 1rem; margin-bottom: 20px; }
+        
+        /* PREÇO EM DESTAQUE LIMPO */
+        .price-tag { display: flex; align-items: baseline; gap: 8px; margin-bottom: 25px; }
+        .price-from { color: #64748b; text-decoration: line-through; font-size: 0.9rem; }
+        .price { font-size: 2.2rem; font-weight: 800; color: #f8fafc; }
 
+        /* BOTÃO WHATSAPP PROFISSIONAL */
         .btn-whatsapp {
             display: flex; align-items: center; justify-content: center;
-            background-color: #25d366; color: #fff; text-decoration: none;
-            padding: 18px; border-radius: 14px; font-weight: bold; font-size: 1.1rem; transition: 0.3s;
+            background-color: #16a34a; color: #fff; text-decoration: none;
+            padding: 20px; border-radius: 12px; font-weight: 700;
+            font-size: 1.1rem; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+            transition: 0.3s;
         }
-        .btn-whatsapp:hover { background-color: #128c7e; }
-        footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
+        .btn-whatsapp:hover { background-color: #15803d; transform: scale(1.02); }
+
+        footer { text-align: center; padding: 80px; color: #475569; font-size: 0.85rem; border-top: 1px solid #1e293b; }
     </style>
 </head>
 <body>
 
     <header class="header">
         <h1>POWERMAX</h1>
-        <p class="tagline">Performance Sem Compromisso</p>
+        <p class="tagline">Qualidade e Segurança Garantida</p>
     </header>
 
     <div class="container">
         <section class="product-grid">
             
             <div class="card">
-                <div class="carousel-container" id="carousel1">
+                <div class="carousel-container" id="c1">
                     <div class="carousel-track">
-                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1615526675159-e248c3117d97?q=80&w=800"></div>
-                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1609091839697-ebc48710baab?q=80&w=800"></div>
-                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b?q=80&w=800"></div>
-                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=800"></div>
+                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1615526675159-e248c3117d97?q=80&w=800" onclick="toggleZoom(this)"></div>
+                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1609091839697-ebc48710baab?q=80&w=800" onclick="toggleZoom(this)"></div>
+                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b?q=80&w=800" onclick="toggleZoom(this)"></div>
+                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=800" onclick="toggleZoom(this)"></div>
                     </div>
-                    
-                    <div class="carousel-btn prev" onclick="moveCarousel('carousel1', -1)">&#10094;</div>
-                    <div class="carousel-btn next" onclick="moveCarousel('carousel1', 1)">&#10095;</div>
-                    
-                    <div class="carousel-dots">
-                        <div class="dot active" onclick="currentSlide('carousel1', 0)"></div>
-                        <div class="dot" onclick="currentSlide('carousel1', 1)"></div>
-                        <div class="dot" onclick="currentSlide('carousel1', 2)"></div>
-                        <div class="dot" onclick="currentSlide('carousel1', 3)"></div>
-                    </div>
+                    <div class="carousel-btn prev" onclick="move('c1', -1)">&#10094;</div>
+                    <div class="carousel-btn next" onclick="move('c1', 1)">&#10095;</div>
+                    <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
                 </div>
-                
                 <h2>Powerbank Max Ultra</h2>
-                <p class="description">Energia infinita no seu bolso. Design blindado com 4 camadas de proteção e carga ultra-rápida para até 3 dispositivos simultaneamente.</p>
-                <span class="price">R$ 189,90</span>
-                <a href="https://wa.me/559991614826?text=Olá%20Powermax!%20Tenho%20interesse%20no%20Powerbank%20Max%20Ultra" class="btn-whatsapp">
-                    Comprar via WhatsApp
-                </a>
+                <p class="description">Energia de confiança para o seu dia a dia. Tecnologia de ponta com certificação de segurança internacional.</p>
+                <div class="price-tag">
+                    <span class="price-from">R$ 249,90</span>
+                    <span class="price">R$ 189,90</span>
+                </div>
+                <a href="https://wa.me/559991614826?text=Olá!%20Desejo%20adquirir%20o%20Powerbank%20Max%20Ultra" class="btn-whatsapp">VERIFICAR DISPONIBILIDADE</a>
             </div>
 
             <div class="card">
-                <div class="carousel-container" id="carousel2">
+                <div class="carousel-container" id="c2">
                     <div class="carousel-track">
-                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800"></div>
-                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=800"></div>
-                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=800"></div>
-                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1491929007750-dce8ba77e628?q=80&w=800"></div>
+                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800" onclick="toggleZoom(this)"></div>
+                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=800" onclick="toggleZoom(this)"></div>
+                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=800" onclick="toggleZoom(this)"></div>
+                        <div class="carousel-item"><img src="https://images.unsplash.com/photo-1491929007750-dce8ba77e628?q=80&w=800" onclick="toggleZoom(this)"></div>
                     </div>
-                    
-                    <div class="carousel-btn prev" onclick="moveCarousel('carousel2', -1)">&#10094;</div>
-                    <div class="carousel-btn next" onclick="moveCarousel('carousel2', 1)">&#10095;</div>
-                    
-                    <div class="carousel-dots">
-                        <div class="dot active" onclick="currentSlide('carousel2', 0)"></div>
-                        <div class="dot" onclick="currentSlide('carousel2', 1)"></div>
-                        <div class="dot" onclick="currentSlide('carousel2', 2)"></div>
-                        <div class="dot" onclick="currentSlide('carousel2', 3)"></div>
-                    </div>
+                    <div class="carousel-btn prev" onclick="move('c2', -1)">&#10094;</div>
+                    <div class="carousel-btn next" onclick="move('c2', 1)">&#10095;</div>
+                    <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
                 </div>
-                
                 <h2>Headset Power Pro</h2>
-                <p class="description">Sinta cada detalhe do som. Isolamento acústico profissional, graves profundos e bateria de longa duração para game ou trabalho.</p>
-                <span class="price">R$ 349,00</span>
-                <a href="https://wa.me/559991614826?text=Olá%20Powermax!%20Tenho%20interesse%20no%20Headset%20Power%20Pro" class="btn-whatsapp">
-                    Comprar via WhatsApp
-                </a>
+                <p class="description">Som cristalino com durabilidade extrema. O parceiro ideal para longas jornadas de trabalho ou lazer.</p>
+                <div class="price-tag">
+                    <span class="price-from">R$ 450,00</span>
+                    <span class="price">R$ 349,00</span>
+                </div>
+                <a href="https://wa.me/559991614826?text=Olá!%20Desejo%20adquirir%20o%20Headset%20Power%20Pro" class="btn-whatsapp">VERIFICAR DISPONIBILIDADE</a>
             </div>
 
         </section>
 
         <footer>
-            &copy; 2026 Powermax Store. Todos os direitos reservados.
+            &copy; 2026 Powermax Store. Transparência e qualidade em cada entrega.
         </footer>
     </div>
 
     <script>
-        // Função para mover o carrossel usando as setas
-        function moveCarousel(id, direction) {
-            const container = document.getElementById(id);
-            const track = container.querySelector('.carousel-track');
-            const items = container.querySelectorAll('.carousel-item');
-            const dots = container.querySelectorAll('.dot');
-            let itemWidth = items[0].offsetWidth;
-            
-            // Calcula qual é o slide atual baseado na rolagem
-            let currentScroll = track.scrollLeft;
-            let currentSlideIndex = Math.round(currentScroll / itemWidth);
-            
-            // Calcula o novo slide
-            let nextSlideIndex = currentSlideIndex + direction;
-            if (nextSlideIndex < 0) nextSlideIndex = 0;
-            if (nextSlideIndex >= items.length) nextSlideIndex = items.length - 1;
-            
-            // Move para o novo slide
-            track.scrollLeft = nextSlideIndex * itemWidth;
-            
-            // Atualiza os pontos
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[nextSlideIndex].classList.add('active');
+        function toggleZoom(img) {
+            img.classList.toggle('zoomed');
         }
 
-        // Função para mover o carrossel clicando nos pontos (Dots)
-        function currentSlide(id, slideIndex) {
+        function move(id, dir) {
             const container = document.getElementById(id);
             const track = container.querySelector('.carousel-track');
             const dots = container.querySelectorAll('.dot');
-            const itemWidth = container.querySelector('.carousel-item').offsetWidth;
+            const width = container.offsetWidth;
             
-            // Move para o slide correspondente ao ponto clicado
-            track.scrollLeft = slideIndex * itemWidth;
-            
-            // Atualiza os pontos
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[slideIndex].classList.add('active');
+            // Remove zoom ao mudar
+            container.querySelectorAll('img').forEach(i => i.classList.remove('zoomed'));
+
+            let index = Math.round(track.scrollLeft / width) + dir;
+            if (index < 0) index = 0;
+            if (index > 3) index = 3;
+
+            track.scrollLeft = index * width;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index].classList.add('active');
         }
     </script>
 </body>
