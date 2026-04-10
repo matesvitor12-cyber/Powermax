@@ -1,171 +1,159 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PowerMax Brasil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Produto Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #0f0f0f;
-  color: #fff;
-}
+        body {
+            background-color: #0f172a; /* Azul Escuro Moderno */
+            color: #f8fafc;
+            line-height: 1.6;
+        }
 
-.header {
-  background: #000;
-  padding: 15px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  color: #00ff88;
-}
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.container {
-  padding: 20px;
-  max-width: 400px;
-  margin: auto;
-}
+        /* Cabeçalho */
+        header {
+            padding: 40px 0;
+            text-align: center;
+        }
 
-h1 {
-  font-size: 22px;
-}
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
 
-.gallery {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-}
+        p.subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
 
-.gallery img {
-  width: 100%;
-  max-width: 250px;
-  border-radius: 10px;
-}
+        /* Grid de Produtos */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
 
-.price-box {
-  margin: 20px 0;
-}
+        /* Card do Produto */
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 15px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+        }
 
-.old {
-  text-decoration: line-through;
-  color: #888;
-}
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #38bdf8;
+        }
 
-.price {
-  font-size: 28px;
-  color: #00ff88;
-  font-weight: bold;
-}
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+            height: 250px;
+            object-fit: cover; /* Faz a foto preencher o espaço sem distorcer */
+            margin-bottom: 15px;
+        }
 
-.btn {
-  display: block;
-  background: #00ff88;
-  color: #000;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 18px;
-  text-decoration: none;
-  font-weight: bold;
-}
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
 
-.section {
-  margin-top: 30px;
-}
+        .price {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #38bdf8;
+            display: block;
+            margin: 10px 0;
+        }
 
-.benefits li {
-  margin: 8px 0;
-}
+        /* Botão de Compra */
+        .btn {
+            display: inline-block;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            width: 100%;
+            transition: opacity 0.2s;
+        }
 
-.review {
-  background: #1a1a1a;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 10px 0;
-}
+        .btn:hover {
+            opacity: 0.8;
+        }
 
-.stars {
-  color: gold;
-}
+        /* Rodapé */
+        footer {
+            margin-top: 80px;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #334155;
+            color: #64748b;
+        }
 
-.footer {
-  text-align: center;
-  font-size: 12px;
-  margin-top: 40px;
-  color: #aaa;
-}
-</style>
+        /* Ajuste para Celular */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="header">
-PowerMax Brasil 🔋
-</div>
+    <div class="container">
+        <header>
+            <h1>OFERTAS EXCLUSIVAS</h1>
+            <p class="subtitle">Qualidade premium selecionada para você.</p>
+        </header>
 
-<div class="container">
+        <section class="product-grid">
+            
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1615526675159-e248c3117d97?auto=format&fit=crop&q=80&w=500" alt="Produto 1">
+                <h2>Nome do Produto 01</h2>
+                <span class="price">R$ 147,90</span>
+                <a href="#" class="btn">Comprar Agora</a>
+            </div>
 
-<h1>Power Bank 20.000mAh Turbo</h1>
-<p>Chega de ficar sem bateria na rua ⚡</p>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=500" alt="Produto 2">
+                <h2>Nome do Produto 02</h2>
+                <span class="price">R$ 299,00</span>
+                <a href="#" class="btn">Comprar Agora</a>
+            </div>
 
-<!-- GALERIA BONITA -->
-<div class="gallery">
-  <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/powerbank1.jpg">
-  <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/powerbank2.jpg">
-  <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/powerbank3.jpg">
-</div>
+        </section>
 
-<!-- PREÇO -->
-<div class="price-box">
-  <div class="old">R$199,90</div>
-  <div class="price">R$149,90</div>
-</div>
-
-<!-- BOTÃO -->
-<a class="btn" href="https://wa.me/5599991614826?text=Quero%20comprar%20o%20Power%20Bank%20🔋">
-🔥 Comprar Agora no WhatsApp
-</a>
-
-<!-- BENEFÍCIOS -->
-<div class="section">
-<h3>💥 Vantagens:</h3>
-<ul class="benefits">
-<li>🔋 Carrega até 5x</li>
-<li>⚡ Carregamento rápido</li>
-<li>🎒 Portátil e leve</li>
-<li>📱 Funciona em qualquer celular</li>
-<li>🚚 Entrega garantida</li>
-</ul>
-</div>
-
-<!-- AVALIAÇÕES -->
-<div class="section">
-<h3>⭐ Avaliações</h3>
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<p>Chegou rápido e funciona muito bem!</p>
-</div>
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<p>Uso todo dia, não fico mais sem bateria</p>
-</div>
-
-<div class="review">
-<div class="stars">★★★★☆</div>
-<p>Muito bom pelo preço</p>
-</div>
-
-</div>
-
-<div class="footer">
-© 2026 PowerMax Brasil
-</div>
-
-</div>
+        <footer>
+            &copy; 2026 Minha Loja Online. Todos os direitos reservados.
+        </footer>
+    </div>
 
 </body>
 </html>
