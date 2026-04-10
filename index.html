@@ -1,157 +1,116 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Produto Premium</title>
+    <title>Powermax | Tecnologia de Elite</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Gerais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        body { background-color: #050505; color: #ffffff; line-height: 1.6; }
 
-        body {
-            background-color: #0f172a; /* Azul Escuro Moderno */
-            color: #f8fafc;
-            line-height: 1.6;
-        }
-
-        /* Container Principal */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Cabeçalho */
-        header {
-            padding: 40px 0;
+        .header {
+            padding: 60px 20px;
             text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
+        h1 { font-size: 3rem; font-weight: 900; letter-spacing: -2px; color: #00d4ff; margin-bottom: 5px; }
+        .tagline { color: #888; font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; }
 
-        p.subtitle {
-            color: #94a3b8;
-            font-size: 1.1rem;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-        /* Grid de Produtos */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        /* Card do Produto */
-        .card {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 20px;
+        .pix-info {
+            background: #111;
+            border: 1px dashed #333;
             padding: 15px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            border-radius: 12px;
             text-align: center;
+            margin-bottom: 40px;
+            font-size: 0.9rem;
         }
+        .pix-key { color: #00d4ff; font-weight: bold; word-break: break-all; }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: #38bdf8;
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 24px;
+            padding: 20px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
+        .card:hover { border-color: #00d4ff; transform: translateY(-5px); }
 
         .card img {
             width: 100%;
-            border-radius: 15px;
-            height: 250px;
-            object-fit: cover; /* Faz a foto preencher o espaço sem distorcer */
-            margin-bottom: 15px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 20px;
         }
 
-        .card h2 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
+        .card h2 { font-size: 1.5rem; margin-bottom: 8px; }
+        .price { font-size: 1.8rem; font-weight: 900; color: #00d4ff; display: block; margin-bottom: 20px; }
 
-        .price {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: #38bdf8;
-            display: block;
-            margin: 10px 0;
-        }
-
-        /* Botão de Compra */
-        .btn {
-            display: inline-block;
-            background: #38bdf8;
-            color: #0f172a;
-            padding: 12px 25px;
-            border-radius: 10px;
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25d366;
+            color: #fff;
             text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
             font-weight: bold;
-            width: 100%;
-            transition: opacity 0.2s;
+            font-size: 1.1rem;
+            transition: 0.3s;
         }
+        .btn-whatsapp:hover { background-color: #128c7e; }
 
-        .btn:hover {
-            opacity: 0.8;
-        }
-
-        /* Rodapé */
-        footer {
-            margin-top: 80px;
-            padding: 40px;
-            text-align: center;
-            border-top: 1px solid #334155;
-            color: #64748b;
-        }
-
-        /* Ajuste para Celular */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-        }
+        footer { text-align: center; padding: 60px 20px; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
+    <header class="header">
+        <h1>POWERMAX</h1>
+        <p class="tagline">Performance Sem Limites</p>
+    </header>
+
     <div class="container">
-        <header>
-            <h1>OFERTAS EXCLUSIVAS</h1>
-            <p class="subtitle">Qualidade premium selecionada para você.</p>
-        </header>
+        <div class="pix-info">
+            Pagamentos via PIX para entrega imediata:<br>
+            <span class="pix-key">1a0258aa-b0d6-42c8-b346-1f41505566e6</span>
+        </div>
 
         <section class="product-grid">
             
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1615526675159-e248c3117d97?auto=format&fit=crop&q=80&w=500" alt="Produto 1">
-                <h2>Nome do Produto 01</h2>
-                <span class="price">R$ 147,90</span>
-                <a href="#" class="btn">Comprar Agora</a>
+                <img src="https://images.unsplash.com/photo-1615526675159-e248c3117d97?q=80&w=800" alt="Produto Powermax">
+                <h2>Powerbank Max Ultra</h2>
+                <span class="price">R$ 189,90</span>
+                <a href="https://wa.me/559991614826?text=Olá%20Powermax!%20Quero%20comprar%20o%20Powerbank%20Max%20Ultra" class="btn-whatsapp">
+                    Comprar via WhatsApp
+                </a>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=500" alt="Produto 2">
-                <h2>Nome do Produto 02</h2>
-                <span class="price">R$ 299,00</span>
-                <a href="#" class="btn">Comprar Agora</a>
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800" alt="Produto Powermax">
+                <h2>Headset Power Pro</h2>
+                <span class="price">R$ 349,00</span>
+                <a href="https://wa.me/559991614826?text=Olá%20Powermax!%20Quero%20comprar%20o%20Headset%20Power%20Pro" class="btn-whatsapp">
+                    Comprar via WhatsApp
+                </a>
             </div>
 
         </section>
 
         <footer>
-            &copy; 2026 Minha Loja Online. Todos os direitos reservados.
+            &copy; 2026 Powermax Store. Todos os direitos reservados.
         </footer>
     </div>
 
