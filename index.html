@@ -7,123 +7,131 @@
 
 <style>
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   margin: 0;
   background: #0f0f0f;
-  color: white;
+  color: #fff;
+}
+
+.header {
+  background: #000;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
   text-align: center;
+  color: #00ff88;
 }
 
 .container {
   padding: 20px;
+  max-width: 400px;
+  margin: auto;
 }
 
 h1 {
-  color: #00ff88;
+  font-size: 22px;
 }
 
-.urgency {
-  background: red;
-  padding: 10px;
-  font-weight: bold;
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
 }
 
-  <div class="gallery">
-  <img src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5">
-  <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
-  <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97">
-  <img src="https://images.unsplash.com/photo-1618410320928-25228d811631">
-</div>
+.gallery img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 10px;
+}
 
-
-.price {
-  font-size: 30px;
-  color: #00ff88;
+.price-box {
+  margin: 20px 0;
 }
 
 .old {
   text-decoration: line-through;
-  color: gray;
+  color: #888;
 }
 
-.btn {
-  background: #00ff88;
-  color: black;
-  padding: 18px;
-  border-radius: 12px;
-  font-size: 20px;
-  text-decoration: none;
-  display: block;
-  margin: 20px auto;
-  width: 85%;
+.price {
+  font-size: 28px;
+  color: #00ff88;
   font-weight: bold;
 }
 
-.timer {
-  font-size: 20px;
-  margin: 15px 0;
-  color: yellow;
+.btn {
+  display: block;
+  background: #00ff88;
+  color: #000;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.benefits {
-  text-align: left;
+.section {
   margin-top: 30px;
 }
 
 .benefits li {
-  margin: 10px 0;
-}
-
-.reviews {
-  margin-top: 30px;
-  text-align: left;
+  margin: 8px 0;
 }
 
 .review {
   background: #1a1a1a;
   padding: 10px;
-  margin: 10px 0;
   border-radius: 10px;
+  margin: 10px 0;
 }
 
 .stars {
   color: gold;
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 40px;
+  color: #aaa;
 }
 </style>
 </head>
 
 <body>
 
-<div class="urgency">
-⚠️ PROMOÇÃO HOJE: ÚLTIMAS UNIDADES COM DESCONTO
+<div class="header">
+PowerMax Brasil 🔋
 </div>
 
 <div class="container">
 
-<h1>PowerMax Brasil 🔋</h1>
-<p>Chega de ficar sem bateria na rua</p>
+<h1>Power Bank 20.000mAh Turbo</h1>
+<p>Chega de ficar sem bateria na rua ⚡</p>
 
-<!-- CONTADOR -->
-<div class="timer" id="timer">Oferta acaba em: 10:00</div>
-
-<!-- GALERIA -->
+<!-- GALERIA BONITA -->
 <div class="gallery">
-  <img src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5">
-  <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
-  <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97">
+  <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/powerbank1.jpg">
+  <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/powerbank2.jpg">
+  <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/powerbank3.jpg">
 </div>
 
-<div class="old">R$199,90</div>
-<div class="price">R$149,90</div>
+<!-- PREÇO -->
+<div class="price-box">
+  <div class="old">R$199,90</div>
+  <div class="price">R$149,90</div>
+</div>
 
+<!-- BOTÃO -->
 <a class="btn" href="https://wa.me/5599991614826?text=Quero%20comprar%20o%20Power%20Bank%20🔋">
-🔥 COMPRAR AGORA NO DESCONTO
+🔥 Comprar Agora no WhatsApp
 </a>
 
 <!-- BENEFÍCIOS -->
-<div class="benefits">
-<h3>💥 Por que comprar?</h3>
-<ul>
+<div class="section">
+<h3>💥 Vantagens:</h3>
+<ul class="benefits">
 <li>🔋 Carrega até 5x</li>
 <li>⚡ Carregamento rápido</li>
 <li>🎒 Portátil e leve</li>
@@ -132,40 +140,32 @@ h1 {
 </ul>
 </div>
 
-<!-- PROVA SOCIAL -->
-<div class="reviews">
-<h3>⭐ +5.000 clientes satisfeitos</h3>
+<!-- AVALIAÇÕES -->
+<div class="section">
+<h3>⭐ Avaliações</h3>
 
 <div class="review">
 <div class="stars">★★★★★</div>
-<p>“Chegou rápido e salvou minha vida!”</p>
+<p>Chegou rápido e funciona muito bem!</p>
 </div>
 
 <div class="review">
 <div class="stars">★★★★★</div>
-<p>“Uso todo dia, vale muito a pena”</p>
+<p>Uso todo dia, não fico mais sem bateria</p>
 </div>
 
 <div class="review">
 <div class="stars">★★★★☆</div>
-<p>“Bom demais pelo preço”</p>
+<p>Muito bom pelo preço</p>
 </div>
 
 </div>
 
+<div class="footer">
+© 2026 PowerMax Brasil
 </div>
 
-<script>
-let time = 600;
-let timer = document.getElementById("timer");
-
-setInterval(() => {
-  let minutes = Math.floor(time / 60);
-  let seconds = time % 60;
-  timer.innerHTML = "Oferta acaba em: " + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-  time--;
-}, 1000);
-</script>
+</div>
 
 </body>
-</html>  
+</html>
