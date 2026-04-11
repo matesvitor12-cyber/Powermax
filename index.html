@@ -53,29 +53,69 @@
     &copy; 2026 Powermax Store.
 </footer>
 
-</div><!-- BOT --><div id="bot" style="position:fixed;bottom:20px;right:20px;width:300px;background:#111827;border-radius:10px;padding:10px;">
-<div id="botMessages"></div>
-<div id="botOptions"></div>
-</div><script>
+<script>
+window.onload = function() {
+
 const botMessages = document.getElementById("botMessages");
 const botOptions = document.getElementById("botOptions");
 
-function msg(t){let d=document.createElement("div");d.innerText=t;botMessages.appendChild(d)}
-function opts(o){botOptions.innerHTML="";o.forEach(b=>{let bt=document.createElement("button");bt.innerText=b.t;bt.onclick=b.a;botOptions.appendChild(bt)})}
+function botMsg(text) {
+  const div = document.createElement("div");
+  div.style.margin = "6px 0";
+  div.innerText = text;
+  botMessages.appendChild(div);
+}
 
-function start(){
-msg("Olá 👋 Quer comprar com desconto?");
-opts([
-{t:"Ver produto",a:produto},
-{t:"Preço",a:preco},
-{t:"WhatsApp",a:zap}
-]);}
+function botOptionsSet(opts) {
+  botOptions.innerHTML = "";
+  opts.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.innerText = opt.text;
+    btn.style = "width:100%;margin-top:5px;padding:10px;border:none;border-radius:8px;background:#16a34a;color:white;";
+    btn.onclick = opt.action;
+    botOptions.appendChild(btn);
+  });
+}
 
-function produto(){msg("Powerbank disponível 🔋");opts([{t:"Ver preço",a:preco},{t:"Comprar",a:comprar}])}
-function preco(){msg("🔥 R$189,90 promoção");opts([{t:"Comprar",a:comprar}])}
-function comprar(){msg("Pix: 1a0258aa-b0d6-42c8-b346-1f41505566e6");opts([{t:"WhatsApp",a:zap}])}
-function zap(){window.open("https://wa.me/5599991614826")}
+function botStart() {
+  botMsg("👋 Olá! Quer comprar com desconto?");
+  
+  botOptionsSet([
+    { text: "Ver produto 🔋", action: botProduto },
+    { text: "Ver preço 💰", action: botPreco },
+    { text: "WhatsApp 🤝", action: botZap }
+  ]);
+}
 
-start();
-</script></body>
-</html>
+function botProduto() {
+  botMsg("🔋 Powerbank disponível (mais vendido 🔥)");
+  botOptionsSet([
+    { text: "Ver preço", action: botPreco },
+    { text: "Comprar agora", action: botComprar }
+  ]);
+}
+
+function botPreco() {
+  botMsg("🔥 R$189,90 promoção");
+  botOptionsSet([
+    { text: "Comprar", action: botComprar }
+  ]);
+}
+
+function botComprar() {
+  botMsg("💰 Pix:");
+  botMsg("1a0258aa-b0d6-42c8-b346-1f41505566e6");
+
+  botOptionsSet([
+    { text: "WhatsApp", action: botZap }
+  ]);
+}
+
+function botZap() {
+  window.open("https://wa.me/5599991614826");
+}
+
+botStart();
+
+};
+</script>
