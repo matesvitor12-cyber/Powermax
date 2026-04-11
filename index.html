@@ -1,81 +1,179 @@
-<!DOCTYPE html><html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Powermax | Tecnologia de Elite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #0a0f1a; color: #ffffff; line-height: 1.6; }
-        .header { padding: 50px 20px; text-align: center; background: linear-gradient(180deg, #111827 0%, #0a0f1a 100%); border-bottom: 1px solid #1e293b; }
-        h1 { font-size: 2.8rem; font-weight: 800; color: #f8fafc; letter-spacing: 2px; }
-        .tagline { color: #38bdf8; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 600; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        .carousel-container { position: relative; width: 100%; height: 480px; overflow: hidden; border-radius: 12px; margin-bottom: 25px; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .carousel-track { display: flex; width: 100%; height: 100%; overflow-x: scroll; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
-        .carousel-track::-webkit-scrollbar { display: none; }
-        .carousel-item { min-width: 100%; height: 100%; scroll-snap-align: start; overflow: hidden; }
-        .carousel-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; cursor: zoom-in; }
-        .carousel-item img.zoomed { transform: scale(1.8); cursor: zoom-out; }
-        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); color: #fff; backdrop-filter: blur(5px); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 10; border: 1px solid rgba(255,255,255,0.2); }
-        .prev { left: 15px; } .next { right: 15px; }
-        .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
-        .dot { width: 8px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 50%; }
-        .dot.active { background: #38bdf8; width: 20px; border-radius: 10px; transition: 0.3s; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .card { background: #1e293b; border-radius: 20px; padding: 30px; border: 1px solid #334155; transition: 0.3s; }
-        .card:hover { border-color: #38bdf8; transform: translateY(-5px); }
-        .card h2 { font-size: 1.7rem; margin-bottom: 12px; color: #f1f5f9; }
-        .description { color: #94a3b8; font-size: 1rem; margin-bottom: 20px; }
-        .price-tag { display: flex; align-items: baseline; gap: 8px; margin-bottom: 25px; }
-        .price-from { color: #64748b; text-decoration: line-through; font-size: 0.9rem; }
-        .price { font-size: 2.2rem; font-weight: 800; color: #f8fafc; }
-        .btn-whatsapp { display: flex; align-items: center; justify-content: center; background-color: #16a34a; color: #fff; text-decoration: none; padding: 20px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3); transition: 0.3s; }
-        .btn-whatsapp:hover { background-color: #15803d; transform: scale(1.02); }
-        footer { text-align: center; padding: 80px; color: #475569; font-size: 0.85rem; border-top: 1px solid #1e293b; }
-    </style>
-</head>
-<body><header class="header">
-    <h1>POWERMAX</h1>
-    <p class="tagline">Qualidade e Segurança Garantida</p>
-</header><div class="container">
-    <section class="product-grid">
-        <div class="card">
-            <h2>Powerbank Max Ultra</h2>
-            <p class="description">Energia de confiança para o seu dia a dia.</p>
-            <div class="price-tag">
-                <span class="price-from">R$ 249,90</span>
-                <span class="price">R$ 189,90</span>
-            </div>
-            <a href="https://wa.me/5599991614826" class="btn-whatsapp">COMPRAR AGORA</a>
-        </div>
-    </section><footer>
-    &copy; 2026 Powermax Store.
-</footer>
+<!DOCTYPE html>  <html lang="pt-br">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Powermax | Tecnologia de Elite</title>  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">  
+    <style>  
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }  /* CORES DA CONFIANÇA: Azul Marinho, Cinza Nobre e Branco */  
+    body { background-color: #0a0f1a; color: #ffffff; line-height: 1.6; }  
+      
+    .header {   
+        padding: 50px 20px;   
+        text-align: center;   
+        background: linear-gradient(180deg, #111827 0%, #0a0f1a 100%);  
+        border-bottom: 1px solid #1e293b;  
+    }  
 
-</div><!-- BOT --><div id="bot" style="position:fixed;bottom:20px;right:20px;width:300px;background:#111827;border-radius:10px;padding:10px;">
-<div id="botMessages"></div>
-<div id="botOptions"></div>
-</div><script>
-const botMessages = document.getElementById("botMessages");
-const botOptions = document.getElementById("botOptions");
+    h1 { font-size: 2.8rem; font-weight: 800; color: #f8fafc; letter-spacing: 2px; }  
+    .tagline { color: #38bdf8; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 600; }  
 
-function msg(t){let d=document.createElement("div");d.innerText=t;botMessages.appendChild(d)}
-function opts(o){botOptions.innerHTML="";o.forEach(b=>{let bt=document.createElement("button");bt.innerText=b.t;bt.onclick=b.a;botOptions.appendChild(bt)})}
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }  
 
-function start(){
-msg("Olá 👋 Quer comprar com desconto?");
-opts([
-{t:"Ver produto",a:produto},
-{t:"Preço",a:preco},
-{t:"WhatsApp",a:zap}
-]);}
+    /* CARROSSEL MAIOR COM ZOOM */  
+    .carousel-container {  
+        position: relative;  
+        width: 100%;  
+        height: 480px; /* Levemente maior para imponência */  
+        overflow: hidden;  
+        border-radius: 12px;  
+        margin-bottom: 25px;  
+        background: #000;  
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);  
+    }  
+      
+    .carousel-track {  
+        display: flex; width: 100%; height: 100%;  
+        overflow-x: scroll; scroll-snap-type: x mandatory;  
+        scroll-behavior: smooth;  
+    }  
+    .carousel-track::-webkit-scrollbar { display: none; }  
+      
+    .carousel-item { min-width: 100%; height: 100%; scroll-snap-align: start; overflow: hidden; }  
+    .carousel-item img {   
+        width: 100%; height: 100%; object-fit: cover;   
+        transition: transform 0.3s ease; cursor: zoom-in;   
+    }  
+    .carousel-item img.zoomed { transform: scale(1.8); cursor: zoom-out; }  
 
-function produto(){msg("Powerbank disponível 🔋");opts([{t:"Ver preço",a:preco},{t:"Comprar",a:comprar}])}
-function preco(){msg("🔥 R$189,90 promoção");opts([{t:"Comprar",a:comprar}])}
-function comprar(){msg("Pix: 1a0258aa-b0d6-42c8-b346-1f41505566e6");opts([{t:"WhatsApp",a:zap}])}
-function zap(){window.open("https://wa.me/5599991614826")}
+    /* NAVEGAÇÃO PROFISSIONAL */  
+    .carousel-btn {  
+        position: absolute; top: 50%; transform: translateY(-50%);  
+        background: rgba(255,255,255,0.1); color: #fff;  
+        backdrop-filter: blur(5px); width: 45px; height: 45px;  
+        border-radius: 50%; display: flex; align-items: center;  
+        justify-content: center; z-index: 10; border: 1px solid rgba(255,255,255,0.2);  
+    }  
+    .prev { left: 15px; } .next { right: 15px; }  
 
-start();
-</script></body>
-</html>
+    .carousel-dots {  
+        position: absolute; bottom: 20px; left: 50%;  
+        transform: translateX(-50%); display: flex; gap: 10px; z-index: 10;  
+    }  
+    .dot { width: 8px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 50%; }  
+    .dot.active { background: #38bdf8; width: 20px; border-radius: 10px; transition: 0.3s; }  
+
+    /* GRID E CARDS */  
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }  
+      
+    .card {   
+        background: #1e293b; border-radius: 20px; padding: 30px;   
+        border: 1px solid #334155; transition: 0.3s;  
+    }  
+    .card:hover { border-color: #38bdf8; transform: translateY(-5px); }  
+
+    .card h2 { font-size: 1.7rem; margin-bottom: 12px; color: #f1f5f9; }  
+    .description { color: #94a3b8; font-size: 1rem; margin-bottom: 20px; }  
+      
+    /* PREÇO EM DESTAQUE LIMPO */  
+    .price-tag { display: flex; align-items: baseline; gap: 8px; margin-bottom: 25px; }  
+    .price-from { color: #64748b; text-decoration: line-through; font-size: 0.9rem; }  
+    .price { font-size: 2.2rem; font-weight: 800; color: #f8fafc; }  
+
+    /* BOTÃO WHATSAPP PROFISSIONAL */  
+    .btn-whatsapp {  
+        display: flex; align-items: center; justify-content: center;  
+        background-color: #16a34a; color: #fff; text-decoration: none;  
+        padding: 20px; border-radius: 12px; font-weight: 700;  
+        font-size: 1.1rem; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);  
+        transition: 0.3s;  
+    }  
+    .btn-whatsapp:hover { background-color: #15803d; transform: scale(1.02); }  
+
+    footer { text-align: center; padding: 80px; color: #475569; font-size: 0.85rem; border-top: 1px solid #1e293b; }  
+</style>
+
+</head>  
+<body>  <header class="header">  
+    <h1>POWERMAX</h1>  
+    <p class="tagline">Qualidade e Segurança Garantida</p>  
+</header>  
+
+<div class="container">  
+    <section class="product-grid">  
+          
+        <div class="card">  
+            <div class="carousel-container" id="c1">  
+                <div class="carousel-track">  
+                    <div class="carousel-item"><img src="https://images.unsplash.com/photo-1615526675159-e248c3117d97?q=80&w=800" onclick="toggleZoom(this)"></div>  
+                    <div class="carousel-item"><img src="https://images.unsplash.com/photo-1609091839697-ebc48710baab?q=80&w=800" onclick="toggleZoom(this)"></div>  
+                    <div class="carousel-item"><img src="https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b?q=80&w=800" onclick="toggleZoom(this)"></div>  
+                    <div class="carousel-item"><img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=800" onclick="toggleZoom(this)"></div>  
+                </div>  
+                <div class="carousel-btn prev" onclick="move('c1', -1)">&#10094;</div>  
+                <div class="carousel-btn next" onclick="move('c1', 1)">&#10095;</div>  
+                <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>  
+            </div>  
+            <h2>Powerbank Max Ultra</h2>  
+            <p class="description">Energia de confiança para o seu dia a dia. Tecnologia de ponta com certificação de segurança internacional.</p>  
+            <div class="price-tag">  
+                <span class="price-from">R$ 249,90</span>  
+                <span class="price">R$ 189,90</span>  
+            </div>  
+            <a href="https://wa.me/559991614826?text=Olá!%20Desejo%20adquirir%20o%20Powerbank%20Max%20Ultra" class="btn-whatsapp">VERIFICAR DISPONIBILIDADE</a>  
+        </div>  
+
+        <div class="card">  
+            <div class="carousel-container" id="c2">  
+                <div class="carousel-track">  
+                    <div class="carousel-item"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800" onclick="toggleZoom(this)"></div>  
+                    <div class="carousel-item"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=800" onclick="toggleZoom(this)"></div>  
+                    <div class="carousel-item"><img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=800" onclick="toggleZoom(this)"></div>  
+                    <div class="carousel-item"><img src="https://images.unsplash.com/photo-1491929007750-dce8ba77e628?q=80&w=800" onclick="toggleZoom(this)"></div>  
+                </div>  
+                <div class="carousel-btn prev" onclick="move('c2', -1)">&#10094;</div>  
+                <div class="carousel-btn next" onclick="move('c2', 1)">&#10095;</div>  
+                <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>  
+            </div>  
+            <h2>Headset Power Pro</h2>  
+            <p class="description">Som cristalino com durabilidade extrema. O parceiro ideal para longas jornadas de trabalho ou lazer.</p>  
+            <div class="price-tag">  
+                <span class="price-from">R$ 450,00</span>  
+                <span class="price">R$ 349,00</span>  
+            </div>  
+            <a href="https://wa.me/559991614826?text=Olá!%20Desejo%20adquirir%20o%20Headset%20Power%20Pro" class="btn-whatsapp">VERIFICAR DISPONIBILIDADE</a>  
+        </div>  
+
+    </section>  
+
+    <footer>  
+        &copy; 2026 Powermax Store. Transparência e qualidade em cada entrega.  
+    </footer>  
+</div>  
+
+<script>  
+    function toggleZoom(img) {  
+        img.classList.toggle('zoomed');  
+    }  
+
+    function move(id, dir) {  
+        const container = document.getElementById(id);  
+        const track = container.querySelector('.carousel-track');  
+        const dots = container.querySelectorAll('.dot');  
+        const width = container.offsetWidth;  
+          
+        // Remove zoom ao mudar  
+        container.querySelectorAll('img').forEach(i => i.classList.remove('zoomed'));  
+
+        let index = Math.round(track.scrollLeft / width) + dir;  
+        if (index < 0) index = 0;  
+        if (index > 3) index = 3;  
+
+        track.scrollLeft = index * width;  
+        dots.forEach(d => d.classList.remove('active'));  
+        dots[index].classList.add('active');  
+    }  
+</script>
+
+</body>  
+</html>  
